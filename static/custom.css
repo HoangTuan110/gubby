@@ -2,5 +2,13 @@
 
 * {
   text-align: center;
-  font-family: 'Nunito', sans-serif;
+}
+
+html:not([dir]) code {
+  unicode-bidi: plaintext;
+}
+
+code {
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
