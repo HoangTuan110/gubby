@@ -4,11 +4,11 @@
   text-align: center;
 }
 
-html:not([dir]) code {
+html:not([dir]) pre {
   unicode-bidi: plaintext;
 }
 
-code {
+pre {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
