@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from mako.lookup import TemplateLookup
 from httpx import get
 from json import loads
@@ -12,7 +12,7 @@ def serve_template(name, **kwargs):
 
 @app.route("/")
 def index():
-    return serve_template("index.html")
+    return serve_template("index.html", host_url=request.host_url)
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0")
