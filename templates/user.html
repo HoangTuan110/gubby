@@ -8,10 +8,31 @@
 
     BIO
       
-      ${user["bio"]}
+    % if user["bio"]:
+    ${user["bio"]}
+    % endif
+    --------------------
+    ${user["followers"]} followers, ${user["following"]} following.
+    ${user["public_repos"]} public repositories, ${user["public_gists"]} public gists.
 
-    README
+    LOCATION
       
-      https://github.com/${user["login"]}/${user["login"]}
+    ${(user["location"] if user["location"] else "*")}
+
+    BLOG
+
+    ${(user["blog"] if user["blog"] else "*")}
+
+    TWITTER
+
+    ${f"https://twitter.com/{user['twitter_username']}" if user["twitter_username"] else "*"}
+
+    REPO
+
+    ${user["html_url"]}?tab=repositories
+
+    GIST
+
+    https://gist.github.com/${user["login"]}
   </pre>
 </%block>
