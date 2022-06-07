@@ -4,14 +4,14 @@
 
 <%block name="content">
   <pre>
-    ${username}(1)                                   ${name}                                   ${username}(1)
-
-    NAME
-      
-      ${name}
+    ${user["login"]}(1)                                   ${user["name"]}                                   ${user["login"]}(1)
 
     BIO
-    
-      ${bio}
+      
+      ${user["bio"]}
+
+    README
+      
+      ${host_url + user["login"]}/${user["login"]}
   </pre>
 </%block>
