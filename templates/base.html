@@ -8,6 +8,13 @@
   <title><%block name="title"></%block></title>
 </head>
 <body>
+  % if messages:
+  <ul>
+    % for msg in messages:
+    <li style="color: red;">{msg}</li>
+    % endfor
+  </ul>
+  % endif
   <%block name="content"></%block>
 </body>
 </html>
