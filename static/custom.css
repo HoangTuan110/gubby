@@ -1,7 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-
 * {
   text-align: center;
+  /* Copy <pre> tag style from Normalize.css
+   * https://necolas.github.io/normalize.css/8.0.1/normalize.css
+   */
+  font-family: monospace, monospace;
+  font-size: 1em;
 }
 
 html:not([dir]) pre {
