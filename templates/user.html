@@ -8,20 +8,18 @@
 
     BIO
       
-    % if user["bio"]:
-    ${user["bio"]}
-    % endif
+    ${user["bio"] if user["bio"] else "*"}
     --------------------
     ${user["followers"]} followers, ${user["following"]} following.
     ${user["public_repos"]} public repositories, ${user["public_gists"]} public gists.
 
     LOCATION
       
-    ${(user["location"] if user["location"] else "*")}
+    ${user["location"] if user["location"] else "*"}
 
     BLOG
 
-    ${(user["blog"] if user["blog"] else "*")}
+    ${user["blog"] if user["blog"] else "*"}
 
     TWITTER
 
