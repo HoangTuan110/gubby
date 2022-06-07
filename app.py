@@ -25,7 +25,7 @@ def get_user(user):
         flash(f"Error when requesting user: {user_json['message']}")
         return redirect(url_for("/"))
     except Exception as _:
-        return serve_template("user.html", user=user_json, host_url=request.host_url)
+        return serve_template("user.html", user=user_json)
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0")
