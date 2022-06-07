@@ -7,13 +7,13 @@
   <title>Gubby - GitHub in man-page display</title>
 </head>
 <body>
+  <%block name="content"></%block>
   % if messages:
   <ul>
     % for msg in messages:
-    <li style="color: red;">{msg}</li>
+    <li style="color: red;">${msg}</li>
     % endfor
   </ul>
   % endif
-  <%block name="content"></%block>
 </body>
 </html>
