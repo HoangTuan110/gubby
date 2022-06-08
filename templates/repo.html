@@ -2,15 +2,33 @@
 
 <%block name="content">
   <pre>
-    gubby(1)                                   gubby                                   gubby(1)
+    ${user["login"]}(1)                                   ${user["name"]}                                   ${user["login"]}(1)
 
-    NAME
+    BIO
       
-      gubby - Alternative GitHub front-end interface.
+    ${user["bio"] if user["bio"] else "*"}
+    --------------------
+    ${user["followers"]} followers, ${user["following"]} following.
+    ${user["public_repos"]} public repositories, ${user["public_gists"]} public gists.
 
-    SYNOPSIS
+    LOCATION
+      
+    ${user["location"] if user["location"] else "*"}
 
-    ${host_url}USER
-    ${host_url}OWNER/REPO
+    BLOG
+
+    ${user["blog"] if user["blog"] else "*"}
+
+    TWITTER
+
+    ${f"https://twitter.com/{user['twitter_username']}" if user["twitter_username"] else "*"}
+
+    REPO
+
+    ${user["html_url"]}?tab=repositories
+
+    GIST
+
+    https://gist.github.com/${user["login"]}
   </pre>
 </%block>
