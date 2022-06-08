@@ -28,5 +28,19 @@ def get_user(user):
         flash(f"Error when requesting user: {user_json['message']}")
         return redirect(url_for("index"))
 
+# Basically copy-pasted from get_user function, with minimal modification
+@app.route("/<owner>/<repo>")
+def get_repo(owner, repo):
+    repo_json = loads(get(f"https://api.github.com/repos/{owner}/{repo}").text)
+    # If the user's JSON doesn't contain a `id` key, i.e. request has failed,
+    # we will flash the error message back to the user.
+    # If it does exist, we will render content as usual
+    try:
+        _ = repo_json["id"]
+        return serve_template("repo.html", repo=repo_json)
+    except KeyError:
+        flash(f"Error when requesting user: {repo_json['message']}")
+        return redirect(url_for("index"))
+
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0")
