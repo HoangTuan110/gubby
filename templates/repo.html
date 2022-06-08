@@ -2,33 +2,15 @@
 
 <%block name="content">
   <pre>
-    ${user["login"]}(1)                                   ${user["name"]}                                   ${user["login"]}(1)
+    ${repo["name"]}(1)                                   ${repo["full_name"]}                                   ${repo["name"]}(1)
 
-    BIO
+    DESCRIPTION
       
-    ${user["bio"] if user["bio"] else "*"}
+    ${repo["description"] if repo["description"] else "*"}
     --------------------
-    ${user["followers"]} followers, ${user["following"]} following.
-    ${user["public_repos"]} public repositories, ${user["public_gists"]} public gists.
+    ${repo["followers"]} followers, ${repo["following"]} following.
+    ${repo["public_repos"]} public repositories, ${repo["public_gists"]} public gists.
 
-    LOCATION
-      
-    ${user["location"] if user["location"] else "*"}
-
-    BLOG
-
-    ${user["blog"] if user["blog"] else "*"}
-
-    TWITTER
-
-    ${f"https://twitter.com/{user['twitter_username']}" if user["twitter_username"] else "*"}
-
-    REPO
-
-    ${user["html_url"]}?tab=repositories
-
-    GIST
-
-    https://gist.github.com/${user["login"]}
+    <a href=${repo["html_url"]}?tab=repositories>REPO</a>
   </pre>
 </%block>
