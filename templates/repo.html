@@ -9,7 +9,12 @@
     ${repo["description"] if repo["description"] else "*"}
     --------------------
     ${repo["stargazers_count"]} stargazers, ${repo["subscribers_count"]} watchers and ${repo["forks_count"]} forks.
+    ${repo["open_issues"]} open issues.
+    This repo is under the <a href=${repo["license"]["url"]}>${repo["license"]["name"]}</a>.
 
-    <a href=${repo["html_url"]}?tab=repositories>REPO</a>
+    % if repo["homepage"]:
+    <a href=${repo["homepage"]}>HOMEPAGE</a>
+    % endif
+    <a href=${repo["html_url"]}>REPO</a>
   </pre>
 </%block>
