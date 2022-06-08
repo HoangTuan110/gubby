@@ -19,7 +19,7 @@ def index():
 def get_user(user):
     user_json = loads(get(f"https://api.github.com/users/{user}").text)
     # If the user's JSON doesn't contain a `login` key, i.e. request has failed,
-    # We will flash the error message back to the user
+    # we will flash the error message back to the user.
     # If it does exist, we will render content as usual
     try:
         _ = user_json["login"]
