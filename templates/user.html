@@ -17,18 +17,14 @@
 
     WEBSITE
 
-    ${user["blog"] if user["blog"] else "*"}
+    ${f'<a href={user["blog"]}>{user["blog"]}</a>' if user["blog"] else "*"}
 
     TWITTER
 
-    ${f"https://twitter.com/{user['twitter_username']}" if user["twitter_username"] else "*"}
+    ${f"<a href=https://twitter.com/{user['twitter_username']}>@{user['twitter_username']}</a>" if user["twitter_username"] else "*"}
 
-    REPO
+    <a href=${user["html_url"]}?tab=repositories>REPO</a>
 
-    ${user["html_url"]}?tab=repositories
-
-    GIST
-
-    https://gist.github.com/${user["login"]}
+    <a href=https://gist.github.com/${user["login"]}>GIST</a>
   </pre>
 </%block>
